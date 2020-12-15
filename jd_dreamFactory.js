@@ -100,7 +100,7 @@ async function jdDreamFactory() {
   if (!$.unActive) return
   await getUserElectricity();
   await taskList();
-  await investElectric();
+//  await investElectric();
   await QueryHireReward();//收取招工电力
   await PickUp();//收取自家的地下零件
   await stealFriend();
@@ -159,34 +159,6 @@ function collectElectricity(facId = $.factoryId, help = false, master) {
 }
 
 // 投入电力
-function investElectric() {
-  return new Promise(async resolve => {
-    // const url = `/dreamfactory/userinfo/InvestElectric?zone=dream_factory&productionId=${$.productionId}&sceneval=2&g_login_type=1`;
-    $.get(taskurl('userinfo/InvestElectric', `productionId=${$.productionId}`), (err, resp, data) => {
-      try {
-        if (err) {
-          console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} API请求失败，请检查网路重试`)
-        } else {
-          if (safeGet(data)) {
-            data = JSON.parse(data);
-            if (data.ret === 0) {
-              console.log(`成功投入电力${data.data.investElectric}电力`);
-              message += `【投入电力】投入成功，共计 ${data.data.investElectric} 电力\n`;
-            } else {
-              console.log(`投入失败，${data.msg}`);
-              message += `【投入电力】投入失败，${data.msg}\n`;
-            }
-          }
-        }
-      } catch (e) {
-        $.logErr(e, resp)
-      } finally {
-        resolve();
-      }
-    })
-  })
-}
 
 // 初始化任务
 function taskList() {
