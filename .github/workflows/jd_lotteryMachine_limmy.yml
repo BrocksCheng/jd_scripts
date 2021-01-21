@@ -1,16 +1,16 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: jd_syj
+name: jd_lotteryMachine_limmy
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: '55 16 * * *'
+    - cron: '40 20 * * *'
   watch:
     types: started
   repository_dispatch:
-    types: syj
+    types: jd_lotteryMachine_limmy
 jobs:
   build:
 
@@ -35,8 +35,18 @@ jobs:
       - name: npm install
         run: |
           npm install
-      - name: '运行 【京豆十元街】'
+      - name: '运行 【京东抽奖机】'
         run: |
-          node jd_syj.js
+          node jd_lotteryMachine_limmy.js
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
+          JD_DEBUG: ${{ secrets.JD_DEBUG }}
+          PUSH_KEY: ${{ secrets.PUSH_KEY }}
+          BARK_PUSH: ${{ secrets.BARK_PUSH }}
+          BARK_SOUND: ${{ secrets.BARK_SOUND }}
+          TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+          TG_USER_ID: ${{ secrets.TG_USER_ID }}
+          DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
+          DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
+          IGOT_PUSH_KEY: ${{ secrets.IGOT_PUSH_KEY }}
+
