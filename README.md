@@ -122,7 +122,7 @@
     
   - 方法三Docker安装Cookie请见各自的说明。
 
-### 方法四：iOS系统的代理软件（QuantumultX, Surge, Loon, 小火箭）
+### 方法四：iOS系统的代理软件（QuantumultX, Surge, Loon, 小火箭       1111）
 
   - [京东cookie获取脚本 JD_extra_cookie.js](https://raw.githubusercontent.com/lxk0301/jd_scripts/master/JD_extra_cookie.js)
 
